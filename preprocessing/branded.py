@@ -5,7 +5,7 @@ import pandas as pd
 
 air_canada = pd.read_csv("../datasets/participant_data.csv")
 diff_date = list()
-ratio_price = list()
+# ratio_price = list()
 # origin = list()
 # destination = list()
 pref_inventory = list()
