@@ -1,0 +1,15 @@
+id: A unique identifier for the record or row in the dataset.
+ticket_id: A unique identifier for a specific ticket purchased by a customer.
+od: Likely stands for "origin-destination," representing the airports or cities for the departure (origin) and arrival (destination).
+flight_departure_datetime: The date and time when the flight is scheduled to depart.
+purchase_datetime: The date and time when the ticket was purchased.
+trip_type: The type of trip, e.g., "one-way" or "round-trip."
+branded_fare: The fare class or fare branding associated with the ticket (e.g., economy, premium economy, business class, etc.).
+number_of_pax: The number of passengers included in the booking (pax stands for "passengers").
+ADVS_price: Price of the ADVS fare type (likely an abbreviation for a fare option such as "Advanced").
+PREF_price: Price of the PREF fare type (could refer to a preferred or premium fare option).
+ADVS_capacity: Total capacity available for the ADVS fare type on this flight.
+PREF_capacity: Total capacity available for the PREF fare type on this flight.
+ADVS_inventory: The remaining available inventory (number of seats) for the ADVS fare type.
+PREF_inventory: The remaining available inventory for the PREF fare type.
+choice: The selected option or fare type chosen by the customer for this particular ticket.
