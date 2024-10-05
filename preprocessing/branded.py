@@ -11,9 +11,10 @@ diff_date = list()
 pref_inventory = list()
 advs_ratio = list()
 pref_ratio = list()
-total = list()
+# total = list()
 new_pref_price = list()
 new_advs_price = list()
+time_day = list()
 
 for i in range(len(air_canada)):
     # origin.append(air_canada["od"].iloc[i][0])
@@ -25,6 +26,11 @@ for i in range(len(air_canada)):
     pur_obj = datetime.strptime(purchase, "%Y-%m-%d %H:%M")
     diff = (dep_obj - pur_obj).total_seconds()
     diff_date.append(diff)
+
+    if dep_obj.hour < 8 or dep_obj.hour > 22:
+        time_day.append("night")
+    elif dep_obj.hour >= 8 or dep_obj.hour <= 22:
+        time_day.append("day")
 
     # advs_price = int(air_canada["ADVS_price"].iloc[i])
     # pref_price = int(air_canada["PREF_price"].iloc[i])
@@ -49,10 +55,10 @@ for i in range(len(air_canada)):
         int(air_canada["PREF_inventory"].iloc[i])
         / int(air_canada["PREF_capacity"].iloc[i])
     )
-    total.append(
-        int(air_canada["PREF_capacity"].iloc[i])
-        + int(air_canada["ADVS_capacity"].iloc[i])
-    )
+    # total.append(
+    #     int(air_canada["PREF_capacity"].iloc[i])
+    #     + int(air_canada["ADVS_capacity"].iloc[i])
+    # )
 
     branded = int(air_canada["branded_fare"].iloc[i])
     if branded == 2:
@@ -78,7 +84,7 @@ air_canada.insert(15, "pref_inv_full", pref_inventory, True)
 
 air_canada.insert(16, "advs_ratio", advs_ratio, True)
 air_canada.insert(17, "pref_ratio", pref_ratio, True)
-air_canada.insert(18, "total_cap", total, True)
+air_canada.insert(18, "time_day", time_day, True)
 print(air_canada.columns)
 print(air_canada.head)
 air_canada.to_csv("../datasets/new_branded_data.csv")
